@@ -27,4 +27,14 @@ public class Admin extends Person {
     public void addVorstellung(){
 
     }
+
+    public void deleteFilm(){
+
+    }
+
+    public void deleteVorstellung(){
+
+    }
+
+
 }

@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class Saal {
 
-    private ArrayList<Sitzplatz> sitzplaetze;
     private int projektionsFaehigkeit;
     // 1 = 1D, 2 = 2D, 3 = 3D, 4 = 4D
     private int anzahlReihen;
@@ -12,7 +11,17 @@ public class Saal {
         this.projektionsFaehigkeit = projektionsFaehigkeit;
         this.anzahlReihen = anzahlReihen;
         this.anzahlPlaetzeProReihe = anzahlPlaetzeProReihe;
+    }
 
-        //To do: Generierung von Sitzplätzen
+    public int getProjektionsFaehigkeit() {
+        return projektionsFaehigkeit;
+    }
+
+    public int getAnzahlReihen() {
+        return anzahlReihen;
+    }
+
+    public int getAnzahlPlaetzeProReihe() {
+        return anzahlPlaetzeProReihe;
     }
 }

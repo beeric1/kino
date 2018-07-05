@@ -2,7 +2,7 @@ import java.util.Date;
 
 public class Vorstellung {
 
-    private Saal saal;
+    private VirtuellerSaal saal;
     private Date zeit;
     private float preis;
     private String sprache;
@@ -11,18 +11,18 @@ public class Vorstellung {
     private int freieSitze;
 
 
-    public Vorstellung(Saal saal, Date zeit, float preis, String sprache, String untertitel, String projektion) {
-        this.saal = saal;
+    public Vorstellung(Saal physikalischerSaal, Date zeit, float preis, String sprache, String untertitel, String projektion) {
         this.zeit = zeit;
         this.preis = preis;
         this.sprache = sprache;
         this.untertitel = untertitel;
         this.projektion = projektion;
+
+        //Virtueller Saal erstellen
+        saal = new VirtuellerSaal(physikalischerSaal);
+
     }
 
-    public Saal getSaal() {
-        return saal;
-    }
 
     public Date getZeit() {
         return zeit;
@@ -52,8 +52,13 @@ public class Vorstellung {
         this.freieSitze = freieSitze;
     }
 
+    public VirtuellerSaal getSaal() {
+        return saal;
+    }
 
 
 
 }
+
+
 
