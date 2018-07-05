@@ -5,14 +5,23 @@ public class Menu {
     private String input;
     private Scanner scan;
 
-    private Admin rolf;
+    private Admin admin1;
+    private Admin admin2;
+
+    private Benutzer user1;
+    private Benutzer user2;
 
     public Menu() {
 
         scan = new Scanner(System.in);
 
         // Benutzer anlegen
-        rolf = new Admin("Rolf","Meier",2345);
+        admin1 = new Admin("Rolf","Meier",2345);
+        admin2 = new Admin("Lara","Croft",1345);
+
+        user1 = new Benutzer("Frank","Larm",123);
+        user2 = new Benutzer("Anna","Mock",223);
+
     }
 
     public void menu(){
@@ -40,14 +49,20 @@ public class Menu {
     }
 
 
-    public void adminLogin(){
+    public Admin adminLogin(){
+        Admin admin = null;
         System.out.println("Admin Login");
         System.out.println("------------------");
 
+        //Todo: Admin auswählen
+
+        return admin;
     }
 
 
     public void adminMenu(){
+
+        Admin admin = adminLogin();
 
         do {
            System.out.println("Admin Menü");
@@ -62,13 +77,13 @@ public class Menu {
 
             switch (input.toLowerCase()){
                 case "f":
-
+                    admin.addFilm();
                 case "v":
-                    userMenu();
+                    admin.addVorstellung();
                 case "fl":
-                    adminMenu();
+                    admin.deleteFilm();
                 case "vl":
-                    userMenu();
+                    admin.deleteVorstellung();
                 case "exit":
                     System.out.println("zurück zum");
                 default:
