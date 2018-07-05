@@ -17,6 +17,14 @@ public class VirtuellerSaal {
             }
         }
     }
+
+    public Saal getPhysikalischerSaal() {
+        return physikalischerSaal;
+    }
+
+    public void setSitzplaetze(ArrayList<Sitzplatz> sitzplaetze) {
+        this.sitzplaetze = sitzplaetze;
+    }
 }
 
 
