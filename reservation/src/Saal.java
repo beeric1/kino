@@ -13,6 +13,14 @@ public class Saal {
         this.anzahlReihen = anzahlReihen;
         this.anzahlPlaetzeProReihe = anzahlPlaetzeProReihe;
 
-        //To do: Generierung von Sitzplätzen
+        //Generierung von Sitzplätzen
+        for (int i = 0; i < anzahlReihen ; i++) {
+
+            for (int j = 0; j < anzahlPlaetzeProReihe; j++) {
+
+                sitzplaetze.add(new Sitzplatz(i,j));
+            }
+
+        }
     }
 }

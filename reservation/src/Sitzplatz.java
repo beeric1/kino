@@ -7,6 +7,7 @@ public class Sitzplatz {
     public Sitzplatz(int reihe, int nummer) {
         this.reihe = reihe;
         this.nummer = nummer;
+        gebucht = false;
     }
 
     public boolean isGebucht() {
