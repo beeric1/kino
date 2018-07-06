@@ -11,6 +11,11 @@ public class Admin extends Person {
         this.personalnummer = personalnummer;
     }
 
+    public Admin(String vorname, String nachname, String passwort, int personalnummer) {
+        super(vorname, nachname, passwort);
+        this.personalnummer = personalnummer;
+    }
+
     public int getPersonalnummer() {
         return personalnummer;
     }
