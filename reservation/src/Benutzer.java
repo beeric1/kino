@@ -11,6 +11,11 @@ public class Benutzer extends Person{
         this.kundenummer = kundenummer;
     }
 
+    public Benutzer(String vorname, String nachname, String passwort,int kundenummer) {
+        super(vorname, nachname,passwort);
+        this.kundenummer = kundenummer;
+    }
+
     public int getKundenummer() {
         return kundenummer;
     }
