@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Menu {
 
     private String input;
-    public InputReader reader;
 
     private ArrayList<Admin> admins;
     private ArrayList<Benutzer> users;
@@ -16,8 +15,6 @@ public class Menu {
     private Benutzer user2;
 
     public Menu() {
-
-        reader = new InputReader();
 
         admins = new ArrayList<>();
         users = new ArrayList<>();
@@ -43,7 +40,7 @@ public class Menu {
             System.out.println("User               -> u");
             System.out.println("Programm beenden   -> exit");
 
-            input = reader.readString();
+            input = InputReader.readString();
 
             switch (input.toLowerCase()){
                 case "a":
@@ -77,7 +74,7 @@ public class Menu {
             boolean nameFound = false;
             do {
                 System.out.println("Vorname eingeben");
-                input = reader.readString();
+                input = InputReader.readString();
 
                 for (Admin a: admins) {
 
@@ -101,7 +98,7 @@ public class Menu {
                 boolean passwordCorrect = false;
                 do {
                     System.out.println("Passwort eingeben");
-                    input = reader.readString();
+                    input = InputReader.readString();
 
                     for (Admin a: admins) {
 
@@ -143,7 +140,7 @@ public class Menu {
                 System.out.println("Vorstellung löschen    -> vl");
                 System.out.println("Zurück ins Hauptmenü   -> back");
 
-                input = reader.readString();
+                input = InputReader.readString();
 
                 switch (input.toLowerCase()){
                     case "f":
@@ -186,7 +183,7 @@ public class Menu {
             boolean nameFound = false;
             do {
                 System.out.println("Vorname eingeben");
-                input = reader.readString();
+                input = InputReader.readString();
 
                 for (Benutzer b: users) {
 
@@ -210,7 +207,7 @@ public class Menu {
                 boolean passwordCorrect = false;
                 do {
                     System.out.println("Passwort eingeben");
-                    input = reader.readString();
+                    input = InputReader.readString();
 
                     for (Benutzer b: users) {
 
@@ -248,7 +245,7 @@ public class Menu {
                 System.out.println("Vorstellung buchen     -> f");
                 System.out.println("Zurück ins Hauptmenü   -> back");
 
-                input = reader.readString();
+                input = InputReader.readString();
 
                 switch (input.toLowerCase()) {
                     case "f":

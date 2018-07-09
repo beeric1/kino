@@ -5,20 +5,20 @@ import java.util.Scanner;
 
 public class InputReader {
 
-    private Scanner scan;
+    private static Scanner scan;
 
     public InputReader() {
 
         scan = new Scanner(System.in);
     }
 
-    public String readString(){
+    public static String readString(){
         String output = null;
         output = scan.nextLine();
         return output;
     }
 
-    public Integer readInteger(){
+    public static Integer readInteger(){
         Integer output = 0;
         boolean inputCorrect = false;
         do{

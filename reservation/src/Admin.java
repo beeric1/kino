@@ -1,3 +1,4 @@
+
 public class Admin extends Person {
 
     private int personalnummer;
@@ -29,7 +30,7 @@ public class Admin extends Person {
         System.out.println("Film hinzufügen");
         System.out.println("---------------");
         System.out.println("Titel eingeben");
-
+        InputReader.readString();
 
     }
 
