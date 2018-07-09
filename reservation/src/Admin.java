@@ -26,8 +26,12 @@ public class Admin extends Person {
 
     public void addFilm(){
 
+        System.out.println("Film hinzufügen");
+        System.out.println("---------------");
+        System.out.println("Titel eingeben");
+
+
     }
-    // blabbla
 
     public void addVorstellung(){
 
