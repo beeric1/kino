@@ -170,14 +170,104 @@ public class Menu {
 
     }
 
-    public void userMenu(){
-        do {
-            System.out.println("User Menü");
-            System.out.println("------------------");
-            System.out.println("Vorstellung buchen     -> f");
-            System.out.println("Zurück ins Hauptmenü   -> exit");
 
-        }while (!input.equalsIgnoreCase("exit"));
+    // Returnes "logged in" Benutzer
+    public Benutzer userLogin(){
+
+        Benutzer user = null;
+        String vorname = null;
+        boolean loginCorrect = false;
+
+        do{
+            System.out.println("Benutzer Login");
+            System.out.println("------------------");
+
+            //Vorname
+            boolean nameFound = false;
+            do {
+                System.out.println("Vorname eingeben");
+                input = scan.nextLine();
+
+                for (Benutzer b: users) {
+
+                    if(b.getVorname().equalsIgnoreCase(input)){
+                        nameFound = true;
+                        System.out.println("Vorname gefunden");
+                        vorname = b.getVorname();
+                    }
+                }
+
+                if(!nameFound){
+                    System.out.println("Vorname unbekannt");
+                }
+
+            }while (!(nameFound || input.equalsIgnoreCase("back")));
+
+
+            if(!input.equalsIgnoreCase("back")){
+
+                //Passwort
+                boolean passwordCorrect = false;
+                do {
+                    System.out.println("Passwort eingeben");
+                    input = scan.nextLine();
+
+                    for (Benutzer b: users) {
+
+                        if(b.getPasswort().equals(input) && b.getVorname().equals(vorname)){
+                            passwordCorrect = true;
+                            System.out.println("Passwort korrekt");
+                            user = b;
+                            loginCorrect = true;
+                        }
+                    }
+
+                    if(!passwordCorrect){
+                        System.out.println("Passwort falsch");
+                    }
+
+                }while (!(passwordCorrect || input.equalsIgnoreCase("back")));
+            }
+
+
+
+        }while(!(loginCorrect || input.equalsIgnoreCase("back")) );
+
+        return user;
+    }
+
+    public void userMenu(){
+
+        Benutzer user = userLogin();
+
+        if(user != null){
+
+            do {
+                System.out.println("User Menü");
+                System.out.println("------------------");
+                System.out.println("Vorstellung buchen     -> f");
+                System.out.println("Zurück ins Hauptmenü   -> back");
+
+                input = scan.nextLine();
+
+                switch (input.toLowerCase()) {
+                    case "f":
+                        user.reserveVorstellung();
+                        break;
+                    case "back":
+                        System.out.println("zurück zum");
+                        break;
+                    default:
+                        System.out.println("Ungültige Eingabe");
+
+                }
+
+            }while (!(input.equalsIgnoreCase("back")));
+
+
+
+        }
+
 
     }
 }
