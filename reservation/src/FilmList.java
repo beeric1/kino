@@ -23,4 +23,14 @@ public class FilmList {
     public void addFilm(Film film){
         filme.add(film);
     }
+
+    public Film getFilm(int index){
+        return filme.get(index);
+    }
+
+    public void printAlLFilms(){
+        for (Film f: filme) {
+            System.out.println(f.getTitel() + " -> " + filme.indexOf(f) );
+        }
+    }
 }

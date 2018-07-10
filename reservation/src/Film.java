@@ -21,6 +21,15 @@ public class Film {
         vorstellungen = null;
     }
 
+    public Film(String titel, String genre, int altersfreigabe, String beschreibung) {
+        this.titel = titel;
+        this.genre = genre;
+        this.altersfreigabe = altersfreigabe;
+        this.beschreibung = beschreibung;
+
+
+    }
+
     public String getTitel() {
         return titel;
     }

@@ -5,24 +5,22 @@ import java.util.Scanner;
 
 public class InputReader {
 
-    private static Scanner scan;
+    private static Scanner scan = new Scanner(System.in);
 
     public InputReader() {
 
-        scan = new Scanner(System.in);
+
     }
 
     public static String readString(){
-        String output = null;
-        output = scan.nextLine();
-        return output;
+
+        return scan.nextLine();
     }
 
     public static int readInt(){
         int output = 0;
-        boolean inputCorrect = false;
+        boolean inputCorrect;
         do{
-
             try {
                 output = scan.nextInt();
                 inputCorrect = true;

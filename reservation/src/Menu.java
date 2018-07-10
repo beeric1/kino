@@ -3,8 +3,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    private String input;
-
     private ArrayList<Admin> admins;
     private ArrayList<Benutzer> users;
 
@@ -33,6 +31,8 @@ public class Menu {
     }
 
     public void menu(){
+
+        String input = null;
         do {
             System.out.println("Hauptmenü");
             System.out.println("------------------");
@@ -61,6 +61,8 @@ public class Menu {
 
     // Returnes "logged in" Admin
     public Admin adminLogin(){
+
+        String input = null;
 
         Admin admin = null;
         String vorname = null;
@@ -127,9 +129,12 @@ public class Menu {
 
     public void adminMenu(){
 
+
         Admin admin = adminLogin();
 
         if(admin != null){
+
+            boolean back = false;
 
             do {
                 System.out.println("Admin Menü");
@@ -140,9 +145,7 @@ public class Menu {
                 System.out.println("Vorstellung löschen    -> vl");
                 System.out.println("Zurück ins Hauptmenü   -> back");
 
-                input = InputReader.readString();
-
-                switch (input.toLowerCase()){
+                switch (InputReader.readString().toLowerCase()){
                     case "f":
                         admin.createFilm();
                         break;
@@ -157,12 +160,13 @@ public class Menu {
                         break;
                     case "back":
                         System.out.println("zurück zum");
+                        back = true;
                         break;
                     default:
                         System.out.println("Ungültige Eingabe");
                 }
 
-            }while (!input.equalsIgnoreCase("back"));
+            }while (!back);
         }
 
     }
@@ -171,6 +175,7 @@ public class Menu {
     // Returnes "logged in" Benutzer
     public Benutzer userLogin(){
 
+        String input = null;
         Benutzer user = null;
         String vorname = null;
         boolean loginCorrect = false;
@@ -234,6 +239,7 @@ public class Menu {
     }
 
     public void userMenu(){
+        String input = null;
 
         Benutzer user = userLogin();
 

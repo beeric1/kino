@@ -42,11 +42,11 @@ public class Admin extends Person {
         System.out.println("Genre eingeben");
         genre = InputReader.readString();
 
-        System.out.println("Altersfreigabe eingeben");
-        altersfreigabe = InputReader.readInt();
-
         System.out.println("Beschreibung eingeben");
         beschreibung = InputReader.readString();
+
+        System.out.println("Altersfreigabe eingeben");
+        altersfreigabe = InputReader.readInt();
 
         System.out.println("Bewertung eingeben");
         bewertung = InputReader.readInt();
@@ -56,7 +56,20 @@ public class Admin extends Person {
 
     }
 
+    public Film filmChooser(){
+        int input = 0;
+        System.out.println("Film auswählen");
+        System.out.println("---------------");
+        FilmList.getfilmListeInstance().printAlLFilms();
+        input = InputReader.readInt();
+
+        return FilmList.getfilmListeInstance().getFilm(input);
+    }
+
     public void addVorstellung(){
+
+        Film film = filmChooser();
+        System.out.println("Vorstellung hinzufügen");
 
     }
 
