@@ -144,7 +144,7 @@ public class Menu {
 
                 switch (input.toLowerCase()){
                     case "f":
-                        admin.addFilm();
+                        admin.createFilm();
                         break;
                     case "v":
                         admin.addVorstellung();

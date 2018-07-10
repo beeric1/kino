@@ -18,8 +18,8 @@ public class InputReader {
         return output;
     }
 
-    public static Integer readInteger(){
-        Integer output = 0;
+    public static int readInt(){
+        int output = 0;
         boolean inputCorrect = false;
         do{
 

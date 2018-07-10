@@ -25,12 +25,34 @@ public class Admin extends Person {
         this.personalnummer = personalnummer;
     }
 
-    public void addFilm(){
+    public void createFilm(){
+
+        String titel;
+        String genre;
+        int altersfreigabe;
+        String beschreibung;
+        int bewertung;
 
         System.out.println("Film hinzufügen");
         System.out.println("---------------");
+
         System.out.println("Titel eingeben");
-        InputReader.readString();
+        titel = InputReader.readString();
+
+        System.out.println("Genre eingeben");
+        genre = InputReader.readString();
+
+        System.out.println("Altersfreigabe eingeben");
+        altersfreigabe = InputReader.readInt();
+
+        System.out.println("Beschreibung eingeben");
+        beschreibung = InputReader.readString();
+
+        System.out.println("Bewertung eingeben");
+        bewertung = InputReader.readInt();
+
+        FilmList.getfilmListeInstance().addFilm(new Film(titel,genre,altersfreigabe,beschreibung,bewertung));
+        System.out.println("Film hinzugefügt");
 
     }
 
