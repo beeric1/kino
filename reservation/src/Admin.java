@@ -70,6 +70,12 @@ public class Admin extends Person {
 
         Film film = filmChooser();
         System.out.println("Vorstellung hinzufügen");
+        System.out.println("---------------");
+        System.out.println("Saal wählen");
+
+
+
+        film.addVorstellung(new Vorstellung());
 
     }
 

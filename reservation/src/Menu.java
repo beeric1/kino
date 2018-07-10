@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class Menu {
 
+    public ReservationsManager resManager;
+    public SaalManager saalManager;
+
     private ArrayList<Admin> admins;
     private ArrayList<Benutzer> users;
 
@@ -13,6 +16,9 @@ public class Menu {
     private Benutzer user2;
 
     public Menu() {
+
+        resManager = new ReservationsManager();
+        saalManager = new SaalManager();
 
         admins = new ArrayList<>();
         users = new ArrayList<>();

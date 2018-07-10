@@ -18,7 +18,7 @@ public class Film {
         this.altersfreigabe = altersfreigabe;
         this.beschreibung = beschreibung;
         this.bewertung = bewertung;
-        vorstellungen = null;
+        vorstellungen = new ArrayList<>();
     }
 
     public Film(String titel, String genre, int altersfreigabe, String beschreibung) {
@@ -28,6 +28,10 @@ public class Film {
         this.beschreibung = beschreibung;
 
 
+    }
+
+    public void addVorstellung(Vorstellung vorstellung){
+        vorstellungen.add(vorstellung);
     }
 
     public String getTitel() {
