@@ -1,18 +1,13 @@
 import java.util.ArrayList;
 
 public class ReservationsManager {
+    private static ReservationsManager ourInstance = new ReservationsManager();
 
-
-    private ArrayList<Film> filme;
-
-
-
-    public ReservationsManager() {
-        filme = new ArrayList<>();
+    public static ReservationsManager getInstance() {
+        return ourInstance;
     }
 
-    public void createFilm(Film film){
-        filme.add(film);
+    private ReservationsManager() {
     }
 
     public void createReservation(){
@@ -22,6 +17,5 @@ public class ReservationsManager {
     public void createConfirmation(){
 
     }
-
 
 }
