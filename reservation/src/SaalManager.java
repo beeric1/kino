@@ -1,6 +1,3 @@
-
-// eventuell Observer um zu prüfen ob Vorstellung ausgebucht
-
 import java.util.ArrayList;
 
 public class SaalManager {
@@ -13,8 +10,13 @@ public class SaalManager {
     private Saal saalD;
     private Saal saalE;
 
+    private static SaalManager ourInstance = new SaalManager();
 
-    public SaalManager() {
+    public static SaalManager getInstance() {
+        return ourInstance;
+    }
+
+    private SaalManager() {
 
         saele = new ArrayList<>();
 
@@ -51,5 +53,11 @@ public class SaalManager {
     public void bookingRuleCheck(){
 
     }
-
 }
+
+
+
+
+
+
+

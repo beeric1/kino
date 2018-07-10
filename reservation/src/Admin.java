@@ -72,7 +72,7 @@ public class Admin extends Person {
         System.out.println("Vorstellung hinzufügen");
         System.out.println("---------------");
         System.out.println("Saal wählen");
-
+        SaalManager.getInstance().printSaele();
 
 
         film.addVorstellung(new Vorstellung());
