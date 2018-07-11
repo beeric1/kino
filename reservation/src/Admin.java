@@ -115,7 +115,7 @@ public class Admin extends Person {
         System.out.println("Projektionsart eingeben");
         projektionsart = InputReader.readInt();
 
-        film.addVorstellung(new Vorstellung(saal, zeit, preis, sprache, untertitel, projektionsart));
+        film.addVorstellung(new Vorstellung(film,saal, zeit, preis, sprache, untertitel, projektionsart));
 
     }
 

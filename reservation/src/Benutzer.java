@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Benutzer extends Person{
 
     private int kundenummer;
@@ -30,6 +32,7 @@ public class Benutzer extends Person{
 
         Film film;
         Vorstellung vorstellung;
+        ArrayList plaetze;
 
         System.out.println("Film auswählen");
         FilmList.getfilmListeInstance().printAllBookableFilms();
@@ -39,6 +42,8 @@ public class Benutzer extends Person{
         film.printAllVorstellungen();
         vorstellung =  film.getVorstellung(InputReader.readInt());
 
-        vorstellung.getSaal().chooseSitzplaetze();
+        plaetze = vorstellung.getSaal().chooseSitzplaetze();
+
+        ReservationsManager.getInstance().createReservation(vorstellung,plaetze,this);
     }
 }

@@ -2,6 +2,7 @@ import java.util.Date;
 
 public class Vorstellung {
 
+    private Film film;
     private VirtuellerSaal saal;
     private Date zeit;
     private float preis;
@@ -11,7 +12,8 @@ public class Vorstellung {
     private int freieSitze;
 
 
-    public Vorstellung(Saal physikalischerSaal, Date zeit, float preis, String sprache, String untertitel, int projektionsart) {
+    public Vorstellung(Film film,Saal physikalischerSaal, Date zeit, float preis, String sprache, String untertitel, int projektionsart) {
+        this.film = film;
         this.zeit = zeit;
         this.preis = preis;
         this.sprache = sprache;
@@ -25,6 +27,9 @@ public class Vorstellung {
 
     }
 
+    public Film getFilm() {
+        return film;
+    }
 
     public Date getZeit() {
         return zeit;
