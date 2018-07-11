@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Benutzer extends Person{
 
     private int kundenummer;
@@ -24,7 +26,28 @@ public class Benutzer extends Person{
         this.kundenummer = kundenummer;
     }
 
+
+
     public void reserveVorstellung(){
 
+        Film film;
+        Vorstellung vorstellung;
+        ArrayList<Sitzplatz> plaetze;
+
+        System.out.println("Film auswählen");
+        FilmList.getfilmListeInstance().printAllBookableFilms();
+        film = FilmList.getfilmListeInstance().getFilm(InputReader.readInt());
+
+        System.out.println("Vorstellung auswählen");
+        film.printAllVorstellungen();
+        vorstellung =  film.getVorstellung(InputReader.readInt());
+
+        plaetze = vorstellung.getSaal().chooseSitzplaetze();
+
+        for (Sitzplatz p: plaetze) {
+            p.setGebucht(true);
+        }
+
+        ReservationsManager.getInstance().createReservation(vorstellung,plaetze,this);
     }
 }

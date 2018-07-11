@@ -1,10 +1,11 @@
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
 
-    private String input;
-    private Scanner scan;
+    public ReservationsManager resManager;
+    public SaalManager saalManager;
 
     private ArrayList<Admin> admins;
     private ArrayList<Benutzer> users;
@@ -16,8 +17,6 @@ public class Menu {
     private Benutzer user2;
 
     public Menu() {
-
-        scan = new Scanner(System.in);
 
         admins = new ArrayList<>();
         users = new ArrayList<>();
@@ -36,6 +35,8 @@ public class Menu {
     }
 
     public void menu(){
+
+        String input = null;
         do {
             System.out.println("Hauptmenü");
             System.out.println("------------------");
@@ -43,7 +44,7 @@ public class Menu {
             System.out.println("User               -> u");
             System.out.println("Programm beenden   -> exit");
 
-            input = scan.nextLine();
+            input = InputReader.readString();
 
             switch (input.toLowerCase()){
                 case "a":
@@ -65,6 +66,8 @@ public class Menu {
     // Returnes "logged in" Admin
     public Admin adminLogin(){
 
+        String input = null;
+
         Admin admin = null;
         String vorname = null;
         boolean loginCorrect = false;
@@ -77,7 +80,7 @@ public class Menu {
             boolean nameFound = false;
             do {
                 System.out.println("Vorname eingeben");
-                input = scan.nextLine();
+                input = InputReader.readString();
 
                 for (Admin a: admins) {
 
@@ -101,7 +104,7 @@ public class Menu {
                 boolean passwordCorrect = false;
                 do {
                     System.out.println("Passwort eingeben");
-                    input = scan.nextLine();
+                    input = InputReader.readString();
 
                     for (Admin a: admins) {
 
@@ -128,11 +131,14 @@ public class Menu {
     }
 
 
-    public void adminMenu(){
+    public void adminMenu() {
+
 
         Admin admin = adminLogin();
 
         if(admin != null){
+
+            boolean back = false;
 
             do {
                 System.out.println("Admin Menü");
@@ -143,11 +149,9 @@ public class Menu {
                 System.out.println("Vorstellung löschen    -> vl");
                 System.out.println("Zurück ins Hauptmenü   -> back");
 
-                input = scan.nextLine();
-
-                switch (input.toLowerCase()){
+                switch (InputReader.readString().toLowerCase()){
                     case "f":
-                        admin.addFilm();
+                        admin.createFilm();
                         break;
                     case "v":
                         admin.addVorstellung();
@@ -160,24 +164,117 @@ public class Menu {
                         break;
                     case "back":
                         System.out.println("zurück zum");
+                        back = true;
                         break;
                     default:
                         System.out.println("Ungültige Eingabe");
                 }
 
-            }while (!input.equalsIgnoreCase("back"));
+            }while (!back);
         }
 
     }
 
-    public void userMenu(){
-        do {
-            System.out.println("User Menü");
-            System.out.println("------------------");
-            System.out.println("Vorstellung buchen     -> f");
-            System.out.println("Zurück ins Hauptmenü   -> exit");
 
-        }while (!input.equalsIgnoreCase("exit"));
+    // Returnes "logged in" Benutzer
+    public Benutzer userLogin(){
+
+        String input = null;
+        Benutzer user = null;
+        String vorname = null;
+        boolean loginCorrect = false;
+
+        do{
+            System.out.println("Benutzer Login");
+            System.out.println("------------------");
+
+            //Vorname
+            boolean nameFound = false;
+            do {
+                System.out.println("Vorname eingeben");
+                input = InputReader.readString();
+
+                for (Benutzer b: users) {
+
+                    if(b.getVorname().equalsIgnoreCase(input)){
+                        nameFound = true;
+                        System.out.println("Vorname gefunden");
+                        vorname = b.getVorname();
+                    }
+                }
+
+                if(!nameFound){
+                    System.out.println("Vorname unbekannt");
+                }
+
+            }while (!(nameFound || input.equalsIgnoreCase("back")));
+
+
+            if(!input.equalsIgnoreCase("back")){
+
+                //Passwort
+                boolean passwordCorrect = false;
+                do {
+                    System.out.println("Passwort eingeben");
+                    input = InputReader.readString();
+
+                    for (Benutzer b: users) {
+
+                        if(b.getPasswort().equals(input) && b.getVorname().equals(vorname)){
+                            passwordCorrect = true;
+                            System.out.println("Passwort korrekt");
+                            user = b;
+                            loginCorrect = true;
+                        }
+                    }
+
+                    if(!passwordCorrect){
+                        System.out.println("Passwort falsch");
+                    }
+
+                }while (!(passwordCorrect || input.equalsIgnoreCase("back")));
+            }
+
+
+
+        }while(!(loginCorrect || input.equalsIgnoreCase("back")) );
+
+        return user;
+    }
+
+    public void userMenu(){
+        String input = null;
+
+        Benutzer user = userLogin();
+
+        if(user != null){
+
+            do {
+                System.out.println("User Menü");
+                System.out.println("------------------");
+                System.out.println("Vorstellung buchen     -> f");
+                System.out.println("Zurück ins Hauptmenü   -> back");
+
+                input = InputReader.readString();
+
+                switch (input.toLowerCase()) {
+                    case "f":
+                        user.reserveVorstellung();
+                        break;
+                    case "back":
+                        System.out.println("zurück zum");
+                        break;
+                    default:
+                        System.out.println("Ungültige Eingabe");
+
+                }
+
+            }while (!(input.equalsIgnoreCase("back")));
+
+
+
+        }
+
 
     }
 }
