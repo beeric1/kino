@@ -20,9 +20,9 @@ public class SaalManager {
 
         saele = new ArrayList<>();
 
-        saalA = new Saal("A",4,30,25);
-        saalB = new Saal("B",3,25,20);
-        saalC = new Saal("C",2,30,25);
+        saalA = new Saal("A",4,10,10);
+        saalB = new Saal("B",3,7,6);
+        saalC = new Saal("C",2,10,5);
         saalD = new Saal("D",2,20,15);
         saalE = new Saal("E",2,15,10);
 

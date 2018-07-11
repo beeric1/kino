@@ -32,9 +32,18 @@ public class FilmList {
         return filme.get(index);
     }
 
-    public void printAlLFilms(){
+    public void printAllFilms(){
         for (Film f: filme) {
             System.out.println(f.getTitel() + " -> " + filme.indexOf(f) );
+        }
+    }
+
+    public void printAllBookableFilms(){
+        for (Film f: filme) {
+            if(f.hasVorstellungen()){
+                System.out.println(f.getTitel() + " -> " + filme.indexOf(f) );
+            }
+
         }
     }
 }

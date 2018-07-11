@@ -63,7 +63,7 @@ public class Admin extends Person {
         int input = 0;
         System.out.println("Film auswählen");
         System.out.println("---------------");
-        FilmList.getfilmListeInstance().printAlLFilms();
+        FilmList.getfilmListeInstance().printAllFilms();
         input = InputReader.readInt();
 
         return FilmList.getfilmListeInstance().getFilm(input);

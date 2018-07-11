@@ -21,6 +21,13 @@ public class Film {
         vorstellungen = new ArrayList<>();
     }
 
+    public boolean hasVorstellungen(){
+        if(vorstellungen.isEmpty()){
+            return false;
+        }else
+            return  true;
+    }
+
     public void addVorstellung(Vorstellung vorstellung){
         vorstellungen.add(vorstellung);
     }

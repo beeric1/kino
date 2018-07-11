@@ -32,12 +32,13 @@ public class Benutzer extends Person{
         Vorstellung vorstellung;
 
         System.out.println("Film auswählen");
-        FilmList.getfilmListeInstance().printAlLFilms();
+        FilmList.getfilmListeInstance().printAllBookableFilms();
         film = FilmList.getfilmListeInstance().getFilm(InputReader.readInt());
 
         System.out.println("Vorstellung auswählen");
         film.printAllVorstellungen();
         vorstellung =  film.getVorstellung(InputReader.readInt());
 
+        vorstellung.getSaal().chooseSitzplaetze();
     }
 }
