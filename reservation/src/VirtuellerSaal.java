@@ -7,6 +7,7 @@ public class VirtuellerSaal {
 
     public VirtuellerSaal(Saal physikalischerSaal) {
         this.physikalischerSaal = physikalischerSaal;
+        sitzplaetze = new ArrayList<>();
 
         for (int i = 0; i < physikalischerSaal.getAnzahlReihen() ; i++) {
 

@@ -7,16 +7,16 @@ public class Vorstellung {
     private float preis;
     private String sprache;
     private String untertitel;
-    private String projektion;
+    private int projektionsart;
     private int freieSitze;
 
 
-    public Vorstellung(Saal physikalischerSaal, Date zeit, float preis, String sprache, String untertitel, String projektion) {
+    public Vorstellung(Saal physikalischerSaal, Date zeit, float preis, String sprache, String untertitel, int projektionsart) {
         this.zeit = zeit;
         this.preis = preis;
         this.sprache = sprache;
         this.untertitel = untertitel;
-        this.projektion = projektion;
+        this.projektionsart = projektionsart;
 
         //Virtueller Saal erstellen
         saal = new VirtuellerSaal(physikalischerSaal);
@@ -40,8 +40,8 @@ public class Vorstellung {
         return untertitel;
     }
 
-    public String getProjektion() {
-        return projektion;
+    public int getProjektionsart() {
+        return projektionsart;
     }
 
     public int getFreieSitze() {

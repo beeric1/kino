@@ -1,3 +1,6 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Admin extends Person {
 
@@ -66,16 +69,53 @@ public class Admin extends Person {
         return FilmList.getfilmListeInstance().getFilm(input);
     }
 
-    public void addVorstellung(){
+    public void addVorstellung()  {
 
         Film film = filmChooser();
+
+        Saal saal;
+        Date zeit = null;
+        float preis;
+        String sprache;
+        String untertitel;
+        int projektionsart;
+
         System.out.println("Vorstellung hinzufügen");
         System.out.println("---------------");
         System.out.println("Saal wählen");
         SaalManager.getInstance().printSaele();
+        saal = SaalManager.getInstance().getSaal(InputReader.readInt());
 
+        System.out.println("Datum und Zeit wählen im Pattern dd-MM-yyyy hh:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm");
 
-        film.addVorstellung(new Vorstellung());
+        do{
+
+            try {
+                zeit = sdf.parse(InputReader.readString());
+            } catch (Exception e ) {
+                System.out.println("Ungültiges Datum");
+            }
+
+            if(zeit == null){
+                System.out.println("Datum ungültig");
+            }
+
+        }while(zeit == null);
+
+        System.out.println("Sprache eingeben");
+        sprache = InputReader.readString();
+
+        System.out.println("Untertitel eingeben");
+        untertitel = InputReader.readString();
+
+        System.out.println("Preis eingeben");
+        preis = InputReader.readFloat();
+
+        System.out.println("Projektionsart eingeben");
+        projektionsart = InputReader.readInt();
+
+        film.addVorstellung(new Vorstellung(saal, zeit, preis, sprache, untertitel, projektionsart));
 
     }
 

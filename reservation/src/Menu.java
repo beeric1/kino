@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,9 +17,6 @@ public class Menu {
     private Benutzer user2;
 
     public Menu() {
-
-        resManager = new ReservationsManager();
-        saalManager = new SaalManager();
 
         admins = new ArrayList<>();
         users = new ArrayList<>();
@@ -133,7 +131,7 @@ public class Menu {
     }
 
 
-    public void adminMenu(){
+    public void adminMenu() {
 
 
         Admin admin = adminLogin();

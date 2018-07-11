@@ -33,11 +33,15 @@ public class SaalManager {
         saele.add(saalE);
     }
 
+    public Saal getSaal(int index){
+        return saele.get(index);
+    }
+
     public void printSaele(){
 
         for (Saal s: saele) {
 
-            System.out.println(s.getName());
+            System.out.println(s.getName() + " " + s.getProjektionsFaehigkeit() + "D  -> " + saele.indexOf(s));
 
         }
     }

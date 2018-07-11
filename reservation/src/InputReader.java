@@ -22,7 +22,24 @@ public class InputReader {
         boolean inputCorrect;
         do{
             try {
-                output = scan.nextInt();
+                output = Integer.parseInt(scan.nextLine());
+                inputCorrect = true;
+            }catch (NumberFormatException ex){
+                System.out.println("Ungültige Eingabe, bitte Zahl eingeben");
+                inputCorrect = false;
+            }
+
+        }while (!inputCorrect);
+
+        return output;
+    }
+
+    public static float readFloat(){
+        float output = 0;
+        boolean inputCorrect;
+        do{
+            try {
+                output = Float.parseFloat(scan.nextLine());
                 inputCorrect = true;
             }catch (InputMismatchException ex){
                 System.out.println("Ungültige Eingabe, bitte Zahl eingeben");
