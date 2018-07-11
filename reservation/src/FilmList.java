@@ -14,6 +14,10 @@ public class FilmList {
 
     private FilmList() {
         filme = new ArrayList<>();
+
+        //Test Data
+        filme.add(new Film("Herr der Ringe","Fantasy",12,"Super Film",5));
+        filme.add(new Film("Cars","Antimation",3,"Auto Film",3));
     }
 
     public ArrayList getFilme(){
