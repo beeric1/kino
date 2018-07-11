@@ -18,4 +18,11 @@ public class Sitzplatz {
         this.gebucht = gebucht;
     }
 
+    public int getReihe() {
+        return reihe;
+    }
+
+    public int getNummer() {
+        return nummer;
+    }
 }

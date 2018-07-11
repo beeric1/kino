@@ -23,10 +23,6 @@ public class VirtuellerSaal {
         return physikalischerSaal;
     }
 
-    public void setSitzplaetze(ArrayList<Sitzplatz> sitzplaetze) {
-        this.sitzplaetze = sitzplaetze;
-    }
-
     public int getFreieSitzplaetze(){
         int counter = 0;
 
@@ -38,6 +34,40 @@ public class VirtuellerSaal {
         }
 
         return counter;
+    }
+
+    public void printLayout(){
+        System.out.println("Layout vom Saal " + physikalischerSaal.getName());
+        System.out.println("------------------------------------------ Leinwand");
+
+        int reihen = physikalischerSaal.getAnzahlReihen();
+        int sitze = physikalischerSaal.getAnzahlPlaetzeProReihe();
+
+        int reihenCounter = 1;
+        int sitzCounter = 1;
+
+        for (Sitzplatz platz:sitzplaetze) {
+
+            if(platz.getNummer() == 1){
+                System.out.println("  ");
+            }
+
+            if(platz.isGebucht()){
+                System.out.print("◌");
+            }else{
+                System.out.print("○");
+            }
+            if(sitze == platz.getNummer()){
+                System.out.print("  Reihe " + reihenCounter);
+                ;
+            }
+
+        }
+        physikalischerSaal.getAnzahlReihen();
+        physikalischerSaal.getAnzahlPlaetzeProReihe();
+
+
+
     }
 }
 
