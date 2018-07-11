@@ -24,7 +24,19 @@ public class Benutzer extends Person{
         this.kundenummer = kundenummer;
     }
 
+
+
     public void reserveVorstellung(){
 
+        Film film;
+        Vorstellung vorstellung;
+
+        System.out.println("Film auswählen");
+        FilmList.getfilmListeInstance().printAlLFilms();
+        film = FilmList.getfilmListeInstance().getFilm(InputReader.readInt());
+
+        System.out.println("Vorstellung auswählen");
+        film.printAllVorstellungen();
+        vorstellung =  film.getVorstellung(InputReader.readInt());
     }
 }

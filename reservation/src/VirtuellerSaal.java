@@ -26,6 +26,19 @@ public class VirtuellerSaal {
     public void setSitzplaetze(ArrayList<Sitzplatz> sitzplaetze) {
         this.sitzplaetze = sitzplaetze;
     }
+
+    public int getFreieSitzplaetze(){
+        int counter = 0;
+
+        for (Sitzplatz s: sitzplaetze) {
+
+            if (!s.isGebucht()){
+                counter++;
+            }
+        }
+
+        return counter;
+    }
 }
 
 

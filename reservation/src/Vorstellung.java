@@ -21,6 +21,8 @@ public class Vorstellung {
         //Virtueller Saal erstellen
         saal = new VirtuellerSaal(physikalischerSaal);
 
+        freieSitze = saal.getFreieSitzplaetze();
+
     }
 
 
