@@ -32,7 +32,7 @@ public class Benutzer extends Person{
 
         Film film;
         Vorstellung vorstellung;
-        ArrayList plaetze;
+        ArrayList<Sitzplatz> plaetze;
 
         System.out.println("Film auswählen");
         FilmList.getfilmListeInstance().printAllBookableFilms();
@@ -43,6 +43,10 @@ public class Benutzer extends Person{
         vorstellung =  film.getVorstellung(InputReader.readInt());
 
         plaetze = vorstellung.getSaal().chooseSitzplaetze();
+
+        for (Sitzplatz p: plaetze) {
+            p.setGebucht(true);
+        }
 
         ReservationsManager.getInstance().createReservation(vorstellung,plaetze,this);
     }
