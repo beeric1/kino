@@ -1,8 +1,6 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-//Todo Singleton implementieren
-
 public class InputReader {
 
     private static Scanner scan = new Scanner(System.in);
