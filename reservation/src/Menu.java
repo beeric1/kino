@@ -142,8 +142,6 @@ public class Menu {
                 System.out.println("------------------");
                 System.out.println("Film erstellen         -> f");
                 System.out.println("Vorstellung erstellen  -> v");
-                System.out.println("Film löschen           -> fl");
-                System.out.println("Vorstellung löschen    -> vl");
                 System.out.println("Zurück ins Hauptmenü   -> back");
 
                 switch (InputReader.readString().toLowerCase()){
@@ -243,13 +241,13 @@ public class Menu {
             do {
                 System.out.println("User Menü");
                 System.out.println("------------------");
-                System.out.println("Vorstellung buchen     -> f");
+                System.out.println("Vorstellung buchen     -> b");
                 System.out.println("Zurück ins Hauptmenü   -> back");
 
                 input = InputReader.readString();
 
                 switch (input.toLowerCase()) {
-                    case "f":
+                    case "b":
                         user.reserveVorstellung();
                         break;
                     case "back":
