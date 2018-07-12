@@ -46,17 +46,6 @@ public class SaalManager {
         }
     }
 
-    public void updateFreeSeats(){
-
-    }
-
-    public void updateStatusOfSeat(){
-
-    }
-
-    public void bookingRuleCheck(){
-
-    }
 }
 
 

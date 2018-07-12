@@ -119,13 +119,6 @@ public class Admin extends Person {
 
     }
 
-    public void deleteFilm(){
-
-    }
-
-    public void deleteVorstellung(){
-
-    }
 
 
 }

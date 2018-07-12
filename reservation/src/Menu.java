@@ -4,9 +4,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public ReservationsManager resManager;
-    public SaalManager saalManager;
-
     private ArrayList<Admin> admins;
     private ArrayList<Benutzer> users;
 
@@ -155,12 +152,6 @@ public class Menu {
                         break;
                     case "v":
                         admin.addVorstellung();
-                        break;
-                    case "fl":
-                        admin.deleteFilm();
-                        break;
-                    case "vl":
-                        admin.deleteVorstellung();
                         break;
                     case "back":
                         System.out.println("zurück zum");
