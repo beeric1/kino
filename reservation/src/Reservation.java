@@ -21,7 +21,7 @@ public class Reservation {
         System.out.println("Sie haben gebucht:");
         System.out.println("Film: " + film.getTitel());
         System.out.println("Zeit: " + vorstellung.getZeit());
-        System.out.println("Saal: " + vorstellung.getSaal());
+        System.out.println("Saal: " + vorstellung.getSaal().getPhysikalischerSaal().getName());
 
         for (Sitzplatz platz: plaetze) {
             System.out.println("Sitzplatz:   Reihe: " +  platz.getReihe() + " Nummer: " + platz.getNummer());

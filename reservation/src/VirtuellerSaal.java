@@ -72,8 +72,8 @@ public class VirtuellerSaal {
 
         Sitzplatz sitzplatz = null;
 
-        int reihe = 0;
-        int nummer = 0;
+        int reihe;
+        int nummer;
         int index = 0;
 
         boolean sitzplatzOK = false;
@@ -86,7 +86,7 @@ public class VirtuellerSaal {
             //Reihe wählen
             do {
                 printLayout();
-                System.out.println("");
+                System.out.println(" ");
                 System.out.println("Reihe eingeben");
                 reihe = InputReader.readInt();
                 if(reihe >= 1 && reihe <= physikalischerSaal.getAnzahlReihen()){
@@ -100,6 +100,7 @@ public class VirtuellerSaal {
             //Nummer wählen
             do {
                 printLayout();
+                System.out.println(" ");
                 System.out.println("Nummer eingeben");
                 nummer = InputReader.readInt();
                 if(nummer >= 1 && nummer <= physikalischerSaal.getAnzahlPlaetzeProReihe()){
